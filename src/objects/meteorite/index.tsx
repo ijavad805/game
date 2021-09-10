@@ -24,7 +24,6 @@ const MeteoriteOne = ({ startPosition, endPosition }: Iprops) => {
       return Math.pow(data.x, 2) + Math.pow(data.y, 2);
     };
 
-    console.log(toDegrees(data.x / Math.sqrt(z())));
     return initial + toDegrees(data.x / Math.sqrt(z()));
   };
 
