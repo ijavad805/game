@@ -25,10 +25,17 @@ const MeteoriteContainer = () => {
 
   useEffect(() => {
     (async () => {
-      await sleep(500);
-      setComponents((prev) => {
-        return [...prev, <MakeMeteorite />];
-      });
+      await sleep(200);
+      if (components.length < 20)
+        setComponents((prev) => {
+          return [...prev, <MakeMeteorite />];
+        });
+      else {
+        await sleep(2000);
+        setComponents((prev) => {
+          return [<MakeMeteorite />];
+        });
+      }
     })();
   }, [components]);
 

@@ -2,7 +2,10 @@ import meteorite1 from "./assets/meteorite.png";
 import fire1 from "./assets/fire.png";
 import classes from "./style.module.scss";
 import { useEffect, useState } from "react";
-import { start } from "repl";
+
+function toDegrees(angle: number) {
+  return angle * (180 / Math.PI);
+}
 
 interface Iprops {
   startPosition: any;
@@ -10,16 +13,21 @@ interface Iprops {
 }
 
 const MeteoriteOne = ({ startPosition, endPosition }: Iprops) => {
-  const deg = () => {
+  const deg = (): number => {
     const initial = -42;
     let data = {
-      x: position.right,
-      y: position.top,
-      z: Math.sqrt((position.right ^ 2) + (position.top ^ 2)),
+      x: endPosition.right - startPosition.right,
+      y: endPosition.top - startPosition.top,
     };
 
-    return initial + Math.asin(data.x / data.z);
+    const z = () => {
+      return Math.pow(data.x, 2) + Math.pow(data.y, 2);
+    };
+
+    console.log(toDegrees(data.x / Math.sqrt(z())));
+    return initial + toDegrees(data.x / Math.sqrt(z()));
   };
+
   const [position, setPosition] = useState({
     top: startPosition.top,
     right: startPosition.right,
