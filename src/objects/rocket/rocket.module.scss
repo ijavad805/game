@@ -1,0 +1,46 @@
+.ObjectRocket {
+  width: 50px;
+  position: absolute;
+  top: 10px;
+  left: calc(50% - 50px);
+  transition: all 0.2s ease-out;
+  transform: translate3d(0, 0, 0);
+  animation: objectAnimation infinite 2s ease-in-out;
+}
+
+.Rocket {
+  width: 100%;
+}
+
+.Fire {
+  width: 15px;
+  position: absolute;
+  bottom: -10px;
+  transform: rotate(180deg);
+  left: 18px;
+  animation: fireAnimation infinite 1s ease-in-out;
+}
+
+@keyframes fireAnimation {
+  0% {
+    transform: rotate(180deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(180deg) scale(1);
+  }
+}
+
+@keyframes objectAnimation {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 20px, 0)
+  }
+  100% {
+    transform: translate3d(0, 0, 0)
+  }
+}

@@ -1,0 +1,41 @@
+.ObjectMeteorite {
+  width: 50px;
+  transition: all 10s;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.Meteorite {
+  width: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: MeteoriteAnimate infinite 5s linear;
+}
+
+.Fire {
+  width: 100%;
+  animation: fireAnimation 1s infinite linear;
+}
+
+@keyframes MeteoriteAnimate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fireAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
